@@ -18,11 +18,9 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
         modelBuilder.ApplyConfiguration(new ApplicationUserPropertyConfiguration());
-        // modelBuilder.ApplyConfiguration(new PropertyTypesConfiguration());
-        // modelBuilder.ApplyConfiguration(new CitiesConfiguration());
-        // modelBuilder.ApplyConfiguration(new PostConfiguration());
+        modelBuilder.ApplyConfiguration(new PropertyTypesConfiguration());
+        modelBuilder.ApplyConfiguration(new CitiesConfiguration());
 
         var entityTypes = modelBuilder.Model.GetEntityTypes().ToList();
 
