@@ -5,7 +5,11 @@ import { PropertiesListComponent } from './components/properties/properties-list
 const routes: Routes = [
   {
     path: '',
-    component: PropertiesListComponent
+    component: PropertiesListComponent,
+  },
+  {
+    path: 'properties',
+    component: PropertiesListComponent,
   },
 ];
 
