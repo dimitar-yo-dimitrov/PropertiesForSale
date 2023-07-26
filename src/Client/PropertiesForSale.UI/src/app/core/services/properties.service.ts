@@ -25,15 +25,15 @@ export class PropertiesService {
     return this.api.get(this.propertiesPath + id);
   }
 
-  create(data: any): Observable<Array<Property>> {
+  create(data: any) {
     return this.api.post(this.propertiesPath, data);
   }
 
-  edit(id: number, data: any): Observable<Array<Property>> {
+  edit(id: number, data: any) {
     return this.api.put(this.propertiesPath + id, data);
   }
 
-  delete(id: number): Observable<Array<Property>> {
+  delete(id: number) {
     return this.api.get(this.propertiesPath + id);
   }
 }
