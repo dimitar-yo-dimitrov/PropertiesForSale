@@ -14,12 +14,16 @@ export class PropertiesService {
   constructor(private api: ApiService) {}
 
   all(): Observable<Array<Property>> {
-    return this.api.get(this.propertiesPath)
+    return this.api.get(this.propertiesPath);
   }
 
-  search() {}
+  search(query: string = ''): Observable<Array<Property>> {
+    return this.api.get(this.propertiesPath + query);
+  }
 
-  details() {}
+  details(id: number): Observable<Array<Property>> {
+    return this.api.get(this.propertiesPath + id);
+  }
 
   create() {}
 
