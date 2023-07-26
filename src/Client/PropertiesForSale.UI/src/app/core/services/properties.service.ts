@@ -1,16 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
+
+import { ApiService } from './api.service';
+import { Property } from '../types/property.type';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PropertiesService {
+  private propertiesPath = 'properties/';
 
-  constructor(private http: HttpClient)  {
-    
+  constructor(private api: ApiService) {}
+
+  all(): Observable<Array<Property>> {
+    return this.api.get(this.propertiesPath)
   }
 
-  getAllProperties(){
+  search() {}
 
-  }
+  details() {}
+
+  create() {}
+
+  edit() {}
+
+  delete() {}
 }
