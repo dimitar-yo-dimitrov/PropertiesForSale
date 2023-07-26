@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Property } from 'src/app/core/models/property.model';
+import { Property } from 'src/app/core/types/property.type';
 
 @Component({
   selector: 'app-properties-list',
@@ -30,9 +30,7 @@ export class PropertiesListComponent implements OnInit {
     },
   ];
 
-  // constructor() {}
+  constructor() {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 }
