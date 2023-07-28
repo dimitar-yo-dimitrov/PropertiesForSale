@@ -9,7 +9,7 @@ import { Property } from '../types/property.type';
   providedIn: 'root',
 })
 export class PropertiesService {
-  private propertiesPath = 'properties/';
+  private propertiesPath = '/api/property';
 
   constructor(private api: ApiService) {}
 

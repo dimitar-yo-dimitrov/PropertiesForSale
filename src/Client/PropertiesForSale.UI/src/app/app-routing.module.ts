@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'properties',
     component: PropertiesListComponent,
   },
+  { path: 'property-list', loadChildren: () => import('./components/properties/property.module')
+  .then(m => m.PropertyListModule) },
+  { path: 'property-list', loadChildren: () => import('./components/properties/property.module')
+  .then(m => m.PropertyListModule) },
 ];
 
 @NgModule({

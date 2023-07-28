@@ -1,3 +1,4 @@
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Server.Data;
 
@@ -8,6 +9,10 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        // 👇 Add cookie authentication
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie();
 
         // Add services to the container.
 
@@ -32,8 +37,9 @@ public class Program
 
         app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
+        // 👇 Enable authentication and authorization middleware 
+        app.UseAuthentication();
         app.UseAuthorization();
-
 
         app.MapControllers();
 

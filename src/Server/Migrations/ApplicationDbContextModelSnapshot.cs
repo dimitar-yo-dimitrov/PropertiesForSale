@@ -98,7 +98,7 @@ namespace Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ApplicationUser");
+                    b.ToTable("ApplicationUser", (string)null);
                 });
 
             modelBuilder.Entity("Server.Data.Models.ApplicationUserProperty", b =>
@@ -113,7 +113,7 @@ namespace Server.Migrations
 
                     b.HasIndex("PropertyId");
 
-                    b.ToTable("ApplicationUserProperties");
+                    b.ToTable("ApplicationUserProperties", (string)null);
                 });
 
             modelBuilder.Entity("Server.Data.Models.City", b =>
@@ -128,7 +128,7 @@ namespace Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cities");
+                    b.ToTable("Cities", (string)null);
 
                     b.HasData(
                         new
@@ -263,7 +263,7 @@ namespace Server.Migrations
 
                     b.HasIndex("PropertyId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Server.Data.Models.Property", b =>
@@ -324,7 +324,7 @@ namespace Server.Migrations
 
                     b.HasIndex("PropertyTypeId");
 
-                    b.ToTable("Properties");
+                    b.ToTable("Properties", (string)null);
                 });
 
             modelBuilder.Entity("Server.Data.Models.PropertyType", b =>
@@ -339,7 +339,7 @@ namespace Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PropertyTypes");
+                    b.ToTable("PropertyTypes", (string)null);
 
                     b.HasData(
                         new
