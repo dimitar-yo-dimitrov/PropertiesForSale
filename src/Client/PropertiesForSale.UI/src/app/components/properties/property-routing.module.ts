@@ -6,7 +6,8 @@ import { CreateComponent } from './create/create.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: PropertiesListComponent },
-  { path: '**', pathMatch: 'full', component: CreateComponent },
+  { path: 'properties', pathMatch: 'full', component: PropertiesListComponent },
+  { path: 'properties/create', component: CreateComponent, title: 'Add Property' },
 ];
 
 @NgModule({

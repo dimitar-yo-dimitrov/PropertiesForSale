@@ -5,6 +5,7 @@ import { PropertyListRoutingModule } from './property-routing.module';
 
 import { PropertiesListComponent } from './properties-list/properties-list.component';
 import { CreateComponent } from './create/create.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 
@@ -15,6 +16,7 @@ import { CreateComponent } from './create/create.component';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     PropertyListRoutingModule,
   ]
 })
