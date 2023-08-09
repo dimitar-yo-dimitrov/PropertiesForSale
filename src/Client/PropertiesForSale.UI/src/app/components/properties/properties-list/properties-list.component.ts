@@ -13,7 +13,7 @@ export class PropertiesListComponent implements OnInit {
   constructor(private propertiesService: PropertiesService) {}
 
   ngOnInit(): void {
-    this.propertiesService.all().subscribe({
+    this.propertiesService.getAllProperties().subscribe({
       next: (properties) => {
         this.properties = properties;
       }

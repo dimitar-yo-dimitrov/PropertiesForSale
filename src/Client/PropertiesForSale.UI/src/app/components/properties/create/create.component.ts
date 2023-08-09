@@ -25,11 +25,11 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
     this.propertyForm = this.formBuilder.group({
       title: ['', Validators.required],
-      price: [null, Validators.required],
+      price: [0, Validators.required],
       address: ['', Validators.required],
       description: ['', Validators.required],
       imageUrl: ['', Validators.required],
-      squareMeters: [null, Validators.required],
+      squareMeters: [0, Validators.required],
     });
   }
 
