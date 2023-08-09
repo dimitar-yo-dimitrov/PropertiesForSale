@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PropertiesService } from 'src/app/core/services/properties.service';
-import { Property } from 'src/app/core/types/property.type';
+import { IProperty } from 'src/app/core/types/property.type';
 
 @Component({
   selector: 'app-properties-list',
@@ -8,7 +8,7 @@ import { Property } from 'src/app/core/types/property.type';
   styleUrls: ['./properties-list.component.css'],
 })
 export class PropertiesListComponent implements OnInit {
-  properties: Property[] = [];
+  properties: IProperty[] = [];
 
   constructor(private propertiesService: PropertiesService) {}
 

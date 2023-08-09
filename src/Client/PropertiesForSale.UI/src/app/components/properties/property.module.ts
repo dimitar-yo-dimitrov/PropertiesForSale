@@ -6,6 +6,7 @@ import { PropertyListRoutingModule } from './property-routing.module';
 import { PropertiesListComponent } from './properties-list/properties-list.component';
 import { CreateComponent } from './create/create.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +19,8 @@ import { CoreModule } from 'src/app/core/core.module';
     CommonModule,
     CoreModule,
     PropertyListRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PropertyListModule { }

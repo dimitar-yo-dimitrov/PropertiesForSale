@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from './api.service';
-import { Property } from '../types/property.type';
+import { IProperty } from '../types/property.type';
 
 @Injectable({
   providedIn: 'root',
@@ -13,27 +13,27 @@ export class PropertiesService {
 
   constructor(private api: ApiService) {}
 
-  all(): Observable<Array<Property>> {
+  getAllProperties(): Observable<Array<IProperty>> {
     return this.api.get(this.propertiesPath);
   }
 
-  search(query: string = ''): Observable<Array<Property>> {
+  searchProperty(query: string = ''): Observable<Array<IProperty>> {
     return this.api.get(this.propertiesPath + query);
   }
 
-  details(id: number): Observable<Array<Property>> {
+  detailsProperty(id: number): Observable<Array<IProperty>> {
     return this.api.get(this.propertiesPath + id);
   }
 
-  create(data: any) {
+  createProperty(data: any) {
     return this.api.post(this.propertiesPath, data);
   }
 
-  edit(id: number, data: any) {
+  editProperty(id: number, data: any) {
     return this.api.put(this.propertiesPath + id, data);
   }
 
-  delete(id: number) {
+  deleteProperty(id: number) {
     return this.api.get(this.propertiesPath + id);
   }
 }
