@@ -4,21 +4,20 @@ import { AppComponent } from './app.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './core/core.module';
 import { PropertyListModule } from './components/properties/property.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
+import { ComponentModule } from './components/component.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    CoreModule,
-    PropertyListModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
   providers: [],
   bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    CoreModule,
+    PropertyListModule,
+    AppRoutingModule,
+    ComponentModule,
+  ],
 })
 export class AppModule {}

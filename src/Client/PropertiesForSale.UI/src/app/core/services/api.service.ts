@@ -33,7 +33,7 @@ export class ApiService {
       .pipe(catchError(this.formatErrors));
   }
 
-  formatErrors(error: any): Observable<never> {
+  formatErrors(_error: any): Observable<never> {
     return throwError(() => new Error('Error from api.service'));
   }
 }
