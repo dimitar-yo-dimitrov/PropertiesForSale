@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PropertyListRoutingModule } from './property-routing.module';
+import { AllPropertiesRoutingModule } from './property-routing.module';
 
-import { PropertiesListComponent } from './all-properties/all-properties.component';
+import { AllPropertiesComponent } from './all-properties/all-properties.component';
 import { CreateComponent } from './create-property/create-property.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MyPropertyComponent } from './my-property/my-property.component';
+import { MyPropertiesComponent } from './my-properties/my-properties.component';
 
 @NgModule({
   declarations: [
-    PropertiesListComponent,
+    AllPropertiesComponent,
     CreateComponent,
-    MyPropertyComponent
+    MyPropertiesComponent
   ],
   imports: [
     CommonModule,
     CoreModule,
-    PropertyListRoutingModule,
+    AllPropertiesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
   ]
 })
-export class PropertyListModule { }
+export class AllPropertyModule { }

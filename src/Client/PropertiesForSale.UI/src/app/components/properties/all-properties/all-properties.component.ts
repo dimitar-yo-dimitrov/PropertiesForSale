@@ -7,7 +7,7 @@ import { IProperty } from 'src/app/core/types/property.type';
   templateUrl: './all-properties.component.html',
   styleUrls: ['./all-properties.component.css'],
 })
-export class PropertiesListComponent implements OnInit {
+export class AllPropertiesComponent implements OnInit {
   properties: IProperty[] = [];
 
   constructor(private propertiesService: PropertiesService) {}
