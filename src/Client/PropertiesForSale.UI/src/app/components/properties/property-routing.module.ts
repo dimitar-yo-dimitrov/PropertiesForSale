@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PropertiesListComponent } from './properties-list/properties-list.component';
-import { CreateComponent } from './create/create.component';
+import { PropertiesListComponent } from './all-properties/all-properties.component';
+import { CreateComponent } from './create-property/create-property.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: PropertiesListComponent },
   { path: 'properties', pathMatch: 'full', component: PropertiesListComponent },
-  { path: 'properties/create', component: CreateComponent, title: 'Add Property' },
+  { path: 'properties/create-property', component: CreateComponent, title: 'Add Property' },
 ];
 
 @NgModule({

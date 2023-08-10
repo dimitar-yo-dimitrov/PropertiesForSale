@@ -3,9 +3,9 @@ import { PropertiesService } from 'src/app/core/services/properties.service';
 import { IProperty } from 'src/app/core/types/property.type';
 
 @Component({
-  selector: 'app-properties-list',
-  templateUrl: './properties-list.component.html',
-  styleUrls: ['./properties-list.component.css'],
+  selector: 'app-all-properties',
+  templateUrl: './all-properties.component.html',
+  styleUrls: ['./all-properties.component.css'],
 })
 export class PropertiesListComponent implements OnInit {
   properties: IProperty[] = [];

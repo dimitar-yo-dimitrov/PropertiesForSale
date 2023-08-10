@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css'],
+  templateUrl: './create-property.component.html',
+  styleUrls: ['./create-property.component.css'],
 })
 export class CreateComponent implements OnInit {
   propertyForm!: FormGroup;

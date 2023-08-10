@@ -21,7 +21,7 @@ export class PropertiesService {
     return this.api.get(this.propertiesPath + query);
   }
 
-  detailsProperty(id: number): Observable<Array<IProperty>> {
+  detailsProperty(id: string): Observable<Array<IProperty>> {
     return this.api.get(this.propertiesPath + id);
   }
 
@@ -29,11 +29,11 @@ export class PropertiesService {
     return this.api.post(this.propertiesPath, data);
   }
 
-  editProperty(id: number, data: any) {
+  editProperty(id: string, data: any) {
     return this.api.put(this.propertiesPath + id, data);
   }
 
-  deleteProperty(id: number) {
+  deleteProperty(id: string) {
     return this.api.get(this.propertiesPath + id);
   }
 }
