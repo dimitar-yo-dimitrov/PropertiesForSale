@@ -1,2 +1,11 @@
-
-<p>all-properties works!</p>
+<div *ngIf="properties">
+    <h2>All Properties</h2>
+    <ul>
+      <li *ngFor="let property of properties">
+        <h3>{{ property.title }}</h3>
+        <p>Price: {{ property.price }}</p>
+        <p>Address: {{ property.address }}</p>
+        <!-- Display other property details as needed -->
+      </li>
+    </ul>
+  </div>

@@ -40,7 +40,7 @@ export class CreateComponent implements OnInit {
       .createProperty(propertyData)
       .subscribe({
         next: (id) => {
-          this.router.navigate(['/property/' + id]);
+          this.router.navigate(['/create-property/' + id]);
         },
         error: (error) => {
           console.error('Error creating property:', error);
