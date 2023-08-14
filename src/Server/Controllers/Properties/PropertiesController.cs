@@ -4,15 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Server.Data;
 using Server.Data.Models;
 
-namespace Server.Controllers
+namespace Server.Controllers.Properties
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PropertyController : Controller
+    //[AuthorizeAdministrator]
+    public class PropertiesController : ApiController
     {
         private readonly ApplicationDbContext _context;
 
-        public PropertyController(ApplicationDbContext context)
+        public PropertiesController(ApplicationDbContext context)
         {
             _context = context;
         }

@@ -40,6 +40,7 @@ public class Property
     public string ImageUrl { get; set; } = null!;
 
     public bool IsActive { set; get; } = true;
+
     public DateTime? DeletedOn { get; set; }
 
     // Navigational properties

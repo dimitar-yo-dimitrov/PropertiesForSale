@@ -1,4 +1,5 @@
-<div *ngIf="properties">
+<div *ngIf="properties && properties.length > 0">
+  <p *ngIf="!properties">No Properties Found!</p>
     <h2>All Properties</h2>
     <ul>
       <li *ngFor="let property of properties">
