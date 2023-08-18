@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server.Data;
 using Server.Data.Models;
+using Server.Extensions;
 
 namespace Server.Controllers.Properties
 {
-    //[AuthorizeAdministrator]
+    [AuthorizeAdministrator]
     public class PropertiesController : ApiController
     {
         private readonly ApplicationDbContext _context;

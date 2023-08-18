@@ -1,8 +1,8 @@
 ﻿namespace Server.Data.Common.Constants;
 
-public static class ValidationConstants
+public class ValidationConstants
 {
-    public static class User
+    public class User
     {
         public const int UserNameMinLength = 1;
         public const int UserNameMaxLength = 50;
@@ -25,7 +25,15 @@ public static class ValidationConstants
         public const string RegexPhoneNumberError = "Phone Number is not corect!";
     }
 
-    public static class Property
+    public class Identity
+    {
+        public const int MinEmailLength = 3;
+        public const int MaxEmailLength = 50;
+        public const int MinPasswordLength = 6;
+        public const string AdministratorRole = "Administrator";
+    }
+
+    public class Property
     {
         public const int PropertyMinTitle = 5;
         public const int PropertyMaxTitle = 50;
@@ -52,13 +60,13 @@ public static class ValidationConstants
         public const string SquareMetersMax = "100000.00";
     }
 
-    public static class City
+    public class City
     {
         public const int CityMinName = 2;
         public const int CityMaxName = 50;
     }
 
-    public static class Comment
+    public class Comment
     {
         public const int MassageMin = 2;
         public const int MassageMax = 2000;
@@ -67,11 +75,11 @@ public static class ValidationConstants
         public const int SenderMaxLength = 50;
     }
 
-    public static class FormattingConstant
+    public class FormattingConstant
     {
         public const string DateFormat = "{0:dd.MM.yyyy}";
     }
-    public static class AdminConstants
+    public class AdminConstants
     {
         public const string AdministratorRoleName = "Admin";
         public const string OwnerRoleName = "Owner";

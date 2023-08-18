@@ -31,13 +31,17 @@ public class Program
             app.UseSwaggerUI();
             app.UseDeveloperExceptionPage();
         }
+        else
+        {
+            app.UseHsts();
+        }
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseRequestLocalization();
 
-        app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+        app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
         // 👇 Enable authentication and authorization middleware 
         app.UseAuthentication();
@@ -46,7 +50,6 @@ public class Program
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
-            endpoints.MapDefaultControllerRoute();
         });
 
         app.MapControllers();

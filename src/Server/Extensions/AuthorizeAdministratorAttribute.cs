@@ -1,6 +1,11 @@
-﻿namespace Server.Extensions
+﻿using Microsoft.AspNetCore.Authorization;
+
+using static Server.Data.Common.Constants.ValidationConstants.Identity;
+
+namespace Server.Extensions
 {
-    public static class AuthorizeAdministratorAttribute
+    public class AuthorizeAdministratorAttribute : AuthorizeAttribute
     {
+        public AuthorizeAdministratorAttribute() => this.Roles = AdministratorRole;
     }
 }
