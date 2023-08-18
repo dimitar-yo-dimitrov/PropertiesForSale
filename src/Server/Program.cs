@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Server.Data;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Server.Extensions;
 
 namespace Server;
 
@@ -9,10 +9,9 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-
         // 👇 Add cookie authentication
-        //builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-        //    .AddCookie();
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie();
 
         // Add services to the container.
 
@@ -21,8 +20,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("PropertiesForSaleConnectionString")));
+        builder.Services.GetDefaultConnectionString(builder.Configuration);
 
         var app = builder.Build();
 

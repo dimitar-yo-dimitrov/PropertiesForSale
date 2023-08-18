@@ -2,8 +2,8 @@
 
 namespace Server.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
+    [ApiController]
     public abstract class ApiController : ControllerBase
     {
         protected const string Id = "{Id}";
