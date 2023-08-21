@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server.Data;
-using Server.Data.Models;
+using Server.Data.Models.Domain;
+using Server.Data.Models.DTO;
 using Server.Extensions;
 
 namespace Server.Controllers.Properties
@@ -27,14 +28,35 @@ namespace Server.Controllers.Properties
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> AddPropertiesAsync([FromBody] Property propertyRequest)
+        public async Task<IActionResult> AddPropertiesAsync(CreatePropertyRequestDto request)
         {
-            propertyRequest.Id = Guid.NewGuid().ToString();
+            //Map to DTO to Domain model
+            var property = new Property
+            {
+                Title = request.Title,
+                Price = request.Price,
+                Description = request.Description,
+                Address = request.Address,
+                SquareMeters = request.SquareMeters,
+                ImageUrl = request.ImageUrl
+            };
 
-            await _context.Properties.AddAsync(propertyRequest);
+            await _context.Properties.AddAsync(property);
             await _context.SaveChangesAsync();
 
-            return Ok(propertyRequest);
+            //Domain model to DTO
+            var response = new PropertyDto
+            {
+                Id = property.Id,
+                Title = property.Title,
+                Price = property.Price,
+                Description = property.Description,
+                Address = property.Address,
+                SquareMeters = property.SquareMeters,
+                ImageUrl = property.ImageUrl
+            };
+
+            return Ok(response);
         }
     }
 }

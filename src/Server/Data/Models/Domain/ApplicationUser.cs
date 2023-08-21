@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using static Server.Data.Common.Constants.ValidationConstants.Property;
 using static Server.Data.Common.Constants.ValidationConstants.User;
 
-namespace Server.Data.Models
+namespace Server.Data.Models.Domain
 {
     public class ApplicationUser : IdentityUser
     {

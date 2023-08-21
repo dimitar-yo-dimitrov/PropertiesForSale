@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Server.Data.Models;
+namespace Server.Data.Models.Domain;
 
 public class ApplicationUserProperty
 {

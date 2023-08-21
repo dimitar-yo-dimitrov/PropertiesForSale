@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 using static Server.Data.Common.Constants.ValidationConstants.Comment;
 
-namespace Server.Data.Models;
+namespace Server.Data.Models.Domain;
 
 public class Post
 {
@@ -32,10 +33,12 @@ public class Post
 
     public DateTime? DeletedOn { get; set; }
 
+    // Navigational properties
     [ForeignKey(nameof(Author))]
     public string AuthorId { get; set; } = null!;
+
     public virtual ApplicationUser Author { get; set; } = null!;
 
     public string? PropertyId { get; set; }
-    public virtual Property? Property { get; set; }
+    public virtual Property? Property { get; set; } = null!;
 }

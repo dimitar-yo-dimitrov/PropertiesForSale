@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+
 using static Server.Data.Common.Constants.ValidationConstants.Property;
 
-namespace Server.Data.Models;
+namespace Server.Data.Models.Domain;
 
 public class Property
 {
@@ -58,6 +59,7 @@ public class Property
     // Navigational properties
     [ForeignKey(nameof(Owner))]
     public string OwnerId { get; set; } = null!;
+
     public virtual ApplicationUser Owner { get; set; } = null!;
 
     public virtual ICollection<ApplicationUserProperty> ApplicationUserProperties { get; set; }

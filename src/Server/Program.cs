@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Server.Extensions;
+﻿using Server.Extensions;
 
 namespace Server;
 
@@ -10,8 +9,8 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // 👇 Add cookie authentication
-        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddCookie();
+        //builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        //    .AddCookie();
 
         // Add services to the container.
 
@@ -41,7 +40,7 @@ public class Program
         app.UseRouting();
         app.UseRequestLocalization();
 
-        app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+        app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
         // 👇 Enable authentication and authorization middleware 
         app.UseAuthentication();
