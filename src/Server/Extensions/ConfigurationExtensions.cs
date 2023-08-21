@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Server.Data;
+using Server.Repositories.Interface;
+using Server.Repositories.Services;
 
 namespace Server.Extensions
 {
@@ -11,6 +13,13 @@ namespace Server.Extensions
 
             services.AddDbContext<ApplicationDbContext>(options
                 => options.UseSqlServer(connectionString));
+
+            return services;
+        }
+
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        {
+            services.AddScoped<IPropertyService, PropertyService>();
 
             return services;
         }

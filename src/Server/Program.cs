@@ -21,6 +21,8 @@ public class Program
 
         builder.Services.GetDefaultConnectionString(builder.Configuration);
 
+        builder.Services.AddApplicationServices();
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.

@@ -41,8 +41,7 @@ namespace Server.Controllers.Properties
                 ImageUrl = request.ImageUrl
             };
 
-            await _context.Properties.AddAsync(property);
-            await _context.SaveChangesAsync();
+
 
             //Domain model to DTO
             var response = new PropertyDto
