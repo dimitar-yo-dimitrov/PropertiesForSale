@@ -11,8 +11,8 @@ namespace Server.Data.Models.Domain
         public ApplicationUser()
         {
             Id = Guid.NewGuid().ToString();
-            ApplicationUserProperties = new HashSet<ApplicationUserProperty>();
-            Posts = new HashSet<Post>();
+            //ApplicationUserProperties = new HashSet<ApplicationUserProperty>();
+            //Posts = new HashSet<Post>();
         }
 
         [StringLength(UserFirstNameMaxLength)]
@@ -33,8 +33,8 @@ namespace Server.Data.Models.Domain
 
         public DateTime? DeletedOn { get; set; }
 
-        public virtual ICollection<ApplicationUserProperty> ApplicationUserProperties { get; set; }
+        //public virtual ICollection<ApplicationUserProperty> ApplicationUserProperties { get; set; }
 
-        public virtual ICollection<Post> Posts { get; set; }
+        //public virtual ICollection<Post> Posts { get; set; }
     }
 }

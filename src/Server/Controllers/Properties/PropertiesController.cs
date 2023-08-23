@@ -27,7 +27,7 @@ namespace Server.Controllers.Properties
         //[Authorize]
         public async Task<IActionResult> AddPropertiesAsync(CreatePropertyRequestDto request)
         {
-            //Map to DTO to Domain model
+            //Map DTO to Domain model
             var property = new Property
             {
                 Title = request.Title,

@@ -8,6 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Configurations\**" />
+    <Content Remove="Data\Configurations\**" />
+    <EmbeddedResource Remove="Data\Configurations\**" />
+    <None Remove="Data\Configurations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Models\Domain\ApplicationUserProperty.cs" />
+    <Compile Remove="Data\Models\Domain\City.cs" />
+    <Compile Remove="Data\Models\Domain\Post.cs" />
+    <Compile Remove="Data\Models\Domain\PropertyType.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8">
       <PrivateAssets>all</PrivateAssets>

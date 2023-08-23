@@ -12,8 +12,8 @@ using Server.Data;
 namespace Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230821120935_ExtendingIdentityUser")]
-    partial class ExtendingIdentityUser
+    [Migration("20230823140050_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -250,171 +250,6 @@ namespace Server.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Server.Data.Models.Domain.ApplicationUserProperty", b =>
-                {
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("PropertyId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ApplicationUserId", "PropertyId");
-
-                    b.HasIndex("PropertyId");
-
-                    b.ToTable("ApplicationUserProperties");
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.City", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cities");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1",
-                            Name = "Sofia"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            Name = "Plovdiv"
-                        },
-                        new
-                        {
-                            Id = "3",
-                            Name = "Varna"
-                        },
-                        new
-                        {
-                            Id = "4",
-                            Name = "Burgas"
-                        },
-                        new
-                        {
-                            Id = "5",
-                            Name = "Stara Zagora"
-                        },
-                        new
-                        {
-                            Id = "6",
-                            Name = "Nesebar"
-                        },
-                        new
-                        {
-                            Id = "7",
-                            Name = "Bansko"
-                        },
-                        new
-                        {
-                            Id = "8",
-                            Name = "Veliko Tarnovo"
-                        },
-                        new
-                        {
-                            Id = "9",
-                            Name = "Smolyan"
-                        },
-                        new
-                        {
-                            Id = "10",
-                            Name = "Blagoevgrad"
-                        },
-                        new
-                        {
-                            Id = "11",
-                            Name = "Ruse"
-                        },
-                        new
-                        {
-                            Id = "12",
-                            Name = "Vratza"
-                        },
-                        new
-                        {
-                            Id = "13",
-                            Name = "Kuklen"
-                        },
-                        new
-                        {
-                            Id = "14",
-                            Name = "Asenovgrad"
-                        },
-                        new
-                        {
-                            Id = "15",
-                            Name = "Velingrad"
-                        },
-                        new
-                        {
-                            Id = "16",
-                            Name = "Koprivshtitza"
-                        },
-                        new
-                        {
-                            Id = "17",
-                            Name = "Gabrovo"
-                        },
-                        new
-                        {
-                            Id = "18",
-                            Name = "Sozopol"
-                        });
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.Post", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("AuthorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
-
-                    b.Property<DateTime?>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PropertyId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Sender")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
-
-                    b.HasIndex("PropertyId");
-
-                    b.ToTable("Posts");
-                });
-
             modelBuilder.Entity("Server.Data.Models.Domain.Property", b =>
                 {
                     b.Property<string>("Id")
@@ -424,10 +259,6 @@ namespace Server.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("CityId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
@@ -445,17 +276,9 @@ namespace Server.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("OwnerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<decimal>("Price")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("PropertyTypeId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<double?>("SquareMeters")
                         .HasColumnType("float");
@@ -467,60 +290,7 @@ namespace Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("OwnerId");
-
-                    b.HasIndex("PropertyTypeId");
-
                     b.ToTable("Properties");
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.PropertyType", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PropertyTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1",
-                            Title = "House"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            Title = "Apartment"
-                        },
-                        new
-                        {
-                            Id = "3",
-                            Title = "Villa"
-                        },
-                        new
-                        {
-                            Id = "4",
-                            Title = "Office"
-                        },
-                        new
-                        {
-                            Id = "5",
-                            Title = "Shop"
-                        },
-                        new
-                        {
-                            Id = "6",
-                            Title = "Hotel"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -572,88 +342,6 @@ namespace Server.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.ApplicationUserProperty", b =>
-                {
-                    b.HasOne("Server.Data.Models.Domain.ApplicationUser", "ApplicationUser")
-                        .WithMany("ApplicationUserProperties")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Server.Data.Models.Domain.Property", "Property")
-                        .WithMany("ApplicationUserProperties")
-                        .HasForeignKey("PropertyId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-
-                    b.Navigation("Property");
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.Post", b =>
-                {
-                    b.HasOne("Server.Data.Models.Domain.ApplicationUser", "Author")
-                        .WithMany("Posts")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Server.Data.Models.Domain.Property", "Property")
-                        .WithMany("Posts")
-                        .HasForeignKey("PropertyId");
-
-                    b.Navigation("Author");
-
-                    b.Navigation("Property");
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.Property", b =>
-                {
-                    b.HasOne("Server.Data.Models.Domain.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Server.Data.Models.Domain.ApplicationUser", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Server.Data.Models.Domain.PropertyType", "PropertyType")
-                        .WithMany("Properties")
-                        .HasForeignKey("PropertyTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("City");
-
-                    b.Navigation("Owner");
-
-                    b.Navigation("PropertyType");
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.ApplicationUser", b =>
-                {
-                    b.Navigation("ApplicationUserProperties");
-
-                    b.Navigation("Posts");
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.Property", b =>
-                {
-                    b.Navigation("ApplicationUserProperties");
-
-                    b.Navigation("Posts");
-                });
-
-            modelBuilder.Entity("Server.Data.Models.Domain.PropertyType", b =>
-                {
-                    b.Navigation("Properties");
                 });
 #pragma warning restore 612, 618
         }

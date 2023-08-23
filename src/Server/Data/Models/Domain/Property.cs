@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 using static Server.Data.Common.Constants.ValidationConstants.Property;
@@ -11,8 +10,8 @@ public class Property
     public Property()
     {
         Id = Guid.NewGuid().ToString();
-        ApplicationUserProperties = new HashSet<ApplicationUserProperty>();
-        Posts = new HashSet<Post>();
+        //ApplicationUserProperties = new HashSet<ApplicationUserProperty>();
+        //Posts = new HashSet<Post>();
     }
 
     [Key]
@@ -44,25 +43,25 @@ public class Property
 
     public DateTime? DeletedOn { get; set; }
 
-    // Navigational properties
-    [ForeignKey(nameof(PropertyType))]
-    public string PropertyTypeId { get; set; } = null!;
+    //// Navigational properties
+    //[ForeignKey(nameof(PropertyType))]
+    //public string PropertyTypeId { get; set; } = null!;
 
-    public virtual PropertyType PropertyType { get; set; } = null!;
+    //public virtual PropertyType PropertyType { get; set; } = null!;
 
-    // Navigational properties
-    [ForeignKey(nameof(City))]
-    public string CityId { get; set; } = null!;
+    //// Navigational properties
+    //[ForeignKey(nameof(City))]
+    //public string CityId { get; set; } = null!;
 
-    public virtual City City { get; set; } = null!;
+    //public virtual City City { get; set; } = null!;
 
-    // Navigational properties
-    [ForeignKey(nameof(Owner))]
-    public string OwnerId { get; set; } = null!;
+    //// Navigational properties
+    //[ForeignKey(nameof(Owner))]
+    //public string OwnerId { get; set; } = null!;
 
-    public virtual ApplicationUser Owner { get; set; } = null!;
+    //public virtual ApplicationUser Owner { get; set; } = null!;
 
-    public virtual ICollection<ApplicationUserProperty> ApplicationUserProperties { get; set; }
+    //public virtual ICollection<ApplicationUserProperty> ApplicationUserProperties { get; set; }
 
-    public virtual ICollection<Post> Posts { get; set; }
+    //public virtual ICollection<Post> Posts { get; set; }
 }
