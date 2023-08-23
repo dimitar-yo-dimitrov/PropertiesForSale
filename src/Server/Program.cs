@@ -1,4 +1,5 @@
-﻿using Server.Extensions;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Server.Extensions;
 
 namespace Server;
 
@@ -9,12 +10,12 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // 👇 Add cookie authentication
-        //builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-        //    .AddCookie();
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie();
 
         // Add services to the container.
-
         builder.Services.AddControllers();
+
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -47,11 +48,6 @@ public class Program
         // 👇 Enable authentication and authorization middleware 
         app.UseAuthentication();
         app.UseAuthorization();
-
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapControllers();
-        });
 
         app.MapControllers();
 

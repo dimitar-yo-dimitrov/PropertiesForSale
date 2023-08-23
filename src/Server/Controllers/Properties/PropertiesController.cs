@@ -1,33 +1,30 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Server.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using Server.Data.Models.Domain;
 using Server.Data.Models.DTO;
-using Server.Extensions;
+using Server.Repositories.Interface;
 
 namespace Server.Controllers.Properties
 {
-    [AuthorizeAdministrator]
+    //[AuthorizeAdministrator]
     public class PropertiesController : ApiController
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IPropertyRepository _property;
 
-        public PropertiesController(ApplicationDbContext context)
+        public PropertiesController(IPropertyRepository property)
         {
-            _context = context;
+            _property = property;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllPropertiesAsync()
-        {
-            var properties = await _context.Properties.ToListAsync();
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllPropertiesAsync()
+        //{
+        //    var properties = await _property.Properties.ToListAsync();
 
-            return Ok(properties);
-        }
+        //    return Ok(properties);
+        //}
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> AddPropertiesAsync(CreatePropertyRequestDto request)
         {
             //Map to DTO to Domain model
@@ -41,7 +38,7 @@ namespace Server.Controllers.Properties
                 ImageUrl = request.ImageUrl
             };
 
-
+            await _property.CreateAsync(property);
 
             //Domain model to DTO
             var response = new PropertyDto

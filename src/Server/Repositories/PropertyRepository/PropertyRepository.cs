@@ -8,11 +8,11 @@ namespace Server.Repositories.Services
      * Repository Design Pattern acts as a middle layer between the rest of application and data access logic.
      * This layer uses only Domain models.
      */
-    public class PropertyService : IPropertyService
+    public class PropertyRepository : IPropertyRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public PropertyService(ApplicationDbContext context)
+        public PropertyRepository(ApplicationDbContext context)
         {
             _context = context;
         }

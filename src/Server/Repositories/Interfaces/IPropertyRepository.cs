@@ -2,7 +2,7 @@
 
 namespace Server.Repositories.Interface
 {
-    public interface IPropertyService
+    public interface IPropertyRepository
     {
         Task<Property> CreateAsync(Property property);
     }

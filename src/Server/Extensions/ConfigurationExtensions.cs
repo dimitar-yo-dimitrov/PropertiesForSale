@@ -19,7 +19,7 @@ namespace Server.Extensions
 
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddScoped<IPropertyService, PropertyService>();
+            services.AddScoped<IPropertyRepository, PropertyRepository>();
 
             return services;
         }
