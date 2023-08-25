@@ -4,9 +4,10 @@ import { AppComponent } from './app.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AllPropertyModule } from './components/properties/property.module';
 import { CoreModule } from './core/core.module';
-import { ComponentModule } from './components/component.module';
+import { ComponentModule } from './core/components/component.module';
+import { AllPropertyModule } from './features/properties/property.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { ComponentModule } from './components/component.module';
     AllPropertyModule,
     AppRoutingModule,
     ComponentModule,
+    FormsModule
   ],
 })
 export class AppModule {}
