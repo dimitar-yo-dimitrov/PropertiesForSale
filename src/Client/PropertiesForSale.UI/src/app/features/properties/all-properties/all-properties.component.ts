@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PropertiesService } from 'src/app/core/services/properties.service';
-import { IProperty } from 'src/app/core/types/property.type';
+import { PropertiesService } from 'src/app/features/services/properties.service';
+import { IProperty } from 'src/app/features/types/create-property-request.type';
 
 @Component({
   selector: 'app-all-properties',

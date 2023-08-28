@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PropertiesService } from 'src/app/core/services/properties.service';
+
+import { PropertiesService } from 'src/app/features/services/properties.service';
+
 import { Subscription } from 'rxjs';
 
 @Component({
