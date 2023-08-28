@@ -6,7 +6,7 @@ import { AllPropertiesRoutingModule } from './property-routing.module';
 import { AllPropertiesComponent } from './all-properties/all-properties.component';
 import { CreateComponent } from './create-property/create-property.component';
 import { CoreModule } from 'src/app/core/core.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MyPropertiesComponent } from './my-properties/my-properties.component';
 
 @NgModule({
@@ -19,7 +19,6 @@ import { MyPropertiesComponent } from './my-properties/my-properties.component';
     CommonModule,
     CoreModule,
     AllPropertiesRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
   ]
 })

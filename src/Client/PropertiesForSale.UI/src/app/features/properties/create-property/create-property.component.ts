@@ -1,10 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { PropertiesService } from 'src/app/core/services/properties.service';
-
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -26,17 +23,21 @@ export class CreateComponent implements OnInit, OnDestroy {
     this.propertyForm = this.formBuilder.group({
       title: [
         '',
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(60),
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(60),
+        ],
       ],
       price: [0, Validators.required],
       address: ['', Validators.required],
       description: [
         '',
-        Validators.required,
-        Validators.minLength(20),
-        Validators.maxLength(2000),
+        [
+          Validators.required,
+          Validators.minLength(20),
+          Validators.maxLength(2000),
+        ],
       ],
       imageUrl: ['', Validators.required],
       squareMeters: [0, Validators.required],
