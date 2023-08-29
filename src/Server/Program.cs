@@ -39,14 +39,19 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-        app.UseStaticFiles();
-        app.UseRouting();
-        app.UseRequestLocalization();
+        // app.UseStaticFiles();
+        // app.UseRouting();
+        // app.UseRequestLocalization();
 
-        app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+        app.UseCors(options =>
+        {
+            options.AllowAnyHeader();
+            options.AllowAnyOrigin();
+            options.AllowAnyMethod();
+        });
 
         // 👇 Enable authentication and authorization middleware 
-        app.UseAuthentication();
+        // app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllers();

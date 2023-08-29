@@ -9,6 +9,7 @@ import { AllPropertyModule } from './features/properties/property.module';
 
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { BrowserModule } from '@angular/platform-browser';
     AllPropertyModule,
     AppRoutingModule,
     ComponentModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
 })
 export class AppModule {}

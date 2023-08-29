@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import { Observable } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
 
 import { ApiService } from './api.service';
 import { IProperty } from 'src/app/features/types/create-property-request.type';
@@ -13,27 +13,28 @@ export class PropertiesService {
 
   constructor(private api: ApiService) {}
 
-  getAllProperties(): Observable<Array<IProperty>> {
+  getAllProperties(): Observable<IProperty[]> {
     return this.api.get(this.propertiesPath);
   }
 
-  searchProperty(query: string = ''): Observable<Array<IProperty>> {
-    return this.api.get(this.propertiesPath + query);
+  searchProperties(query: string): Observable<IProperty[]> {
+    const params = new HttpParams().set('query', query); // Create HttpParams instance
+    return this.api.get(this.propertiesPath, params);
   }
 
-  detailsProperty(id: string): Observable<Array<IProperty>> {
-    return this.api.get(this.propertiesPath + id);
+  getPropertyDetails(id: string): Observable<IProperty> {
+    return this.api.get(`${this.propertiesPath}/${id}`);
   }
 
-  createProperty(data: any) {
+  createProperty(data: any): Observable<any> {
     return this.api.post(this.propertiesPath, data);
   }
 
-  editProperty(id: string, data: any) {
-    return this.api.put(this.propertiesPath + id, data);
+  updateProperty(id: string, data: any): Observable<any> {
+    return this.api.put(`${this.propertiesPath}/${id}`, data);
   }
 
-  deleteProperty(id: string) {
-    return this.api.get(this.propertiesPath + id);
+  deleteProperty(id: string): Observable<any> {
+    return this.api.delete(`${this.propertiesPath}/${id}`);
   }
 }
