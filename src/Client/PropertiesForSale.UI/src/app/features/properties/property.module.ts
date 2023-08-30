@@ -23,4 +23,4 @@ import { CoreModule } from 'src/app/core/core.module';
     ReactiveFormsModule,
   ]
 })
-export class AllPropertyModule { }
+export class PropertyModule { }

@@ -15,11 +15,11 @@ const routes: Routes = [
     component: AllPropertiesComponent 
   },
   {
-    path: 'properties/create-property',
+    path: 'create-property',
     component: CreateComponent,
   },
   { 
-    path: 'properties/my-properties', 
+    path: 'my-properties', 
     component: MyPropertiesComponent 
   },
 ];

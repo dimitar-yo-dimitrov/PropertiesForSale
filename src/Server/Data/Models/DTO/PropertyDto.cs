@@ -19,7 +19,7 @@
 
         public double? SquareMeters { get; init; }
 
-        public DateTime? Date { get; set; }
+        //public DateTime? Date { get; set; }
 
         public string ImageUrl { get; init; } = null!;
 

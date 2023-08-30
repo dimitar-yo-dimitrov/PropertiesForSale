@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class CreateComponent implements OnInit, OnDestroy {
   propertyForm!: FormGroup;
-  propertySubscription!: Subscription;
+  propertySubscription?: Subscription;
 
   constructor(
     private router: Router,
@@ -52,8 +52,8 @@ export class CreateComponent implements OnInit, OnDestroy {
     this.propertySubscription = this.propertiesService
       .createProperty(propertyData)
       .subscribe({
-        next: (id) => {
-          this.router.navigate(['/create-property/' + id]);
+        next: () => {
+          this.router.navigate(['/create-property']);
         },
         error: (error) => {
           console.error('Error creating property:', error);

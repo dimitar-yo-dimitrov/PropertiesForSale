@@ -25,7 +25,7 @@ namespace Server.Controllers.Properties
 
         [HttpPost]
         //[Authorize]
-        public async Task<IActionResult> AddPropertiesAsync(CreatePropertyRequestDto request)
+        public async Task<IActionResult> CreateProperty(CreatePropertyRequestDto request)
         {
             //Map DTO to Domain model
             var property = new Property
