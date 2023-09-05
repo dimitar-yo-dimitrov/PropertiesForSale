@@ -1,4 +1,6 @@
-﻿namespace Server.Data.Models.DTO
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Server.Data.Models.DTO
 {
     public class CreatePropertyRequestDto
     {
@@ -23,7 +25,7 @@
         public double? SquareMeters { get; init; }
 
         //[Required]
-        //[Url]
+        [Url]
         //[Display(Name = "Image URL")]
         public string ImageUrl { get; init; } = null!;
 

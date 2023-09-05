@@ -1,8 +1,8 @@
 export interface IProperty {
     title: string;
     price: number;
-    description: string;
     address: string;
-    squareMeters?: number;
+    description: string;
     imageUrl: string;
+    squareMeters?: number;
 }
